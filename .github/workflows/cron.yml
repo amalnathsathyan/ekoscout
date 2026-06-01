@@ -1,0 +1,17 @@
+name: EcosystemRadar Cron Job
+
+on:
+  schedule:
+    # Runs every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  trigger-cloud-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Scrapers via Cloud Run
+        run: |
+          curl -X POST ${{ secrets.CLOUD_RUN_URL }}/run-scrapers \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json"
