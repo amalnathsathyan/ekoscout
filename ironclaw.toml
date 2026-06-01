@@ -1,0 +1,43 @@
+# IronClaw Configuration for EcosystemRadar Agent
+# This file configures the agent to run inside a Trusted Execution Environment (TEE)
+# See https://github.com/nearai/ironclaw for reference
+
+[agent]
+name = "EcosystemRadar"
+version = "1.0.0"
+description = "Perpetual Blockchain Opportunity Research Agent"
+
+[runtime]
+# Use the Node.js runtime environment inside the TEE
+type = "node"
+version = "20"
+entrypoint = "npm start"
+
+[security]
+# Enable TEE (Trusted Execution Environment) 
+tee_enabled = true
+# Specify which secrets are allowed to be injected into the enclave
+allowed_secrets = [
+  "GEMINI_API_KEY",
+  "CMC_API_KEY",
+  "SUPABASE_URL",
+  "SUPABASE_ANON_KEY",
+  "DISCORD_WEBHOOK_URL",
+  "TELEGRAM_BOT_TOKEN",
+  "TELEGRAM_CHAT_ID",
+  "AGENT_WALLET_PRIVATE_KEY"
+]
+
+[network]
+# Allow outbound connections only to specific domains for security
+allow_outbound = [
+  "api.llama.fi",
+  "pro-api.coinmarketcap.com",
+  "dorahacks.io",
+  "indexer.crosschain.gitcoin.co",
+  "web3.career",
+  "generativelanguage.googleapis.com",
+  "discord.com",
+  "api.telegram.org",
+  "*.supabase.co"
+]
