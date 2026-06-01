@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import { Activity, ShieldAlert, Cpu, Network, ArrowUpRight } from 'lucide-react'
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 
 // Mock Data for initial visual wow-factor
 const MOCK_CHAINS = [
@@ -46,11 +47,14 @@ export default function App() {
           <span className="text-xl font-semibold tracking-tight">EkoScout</span>
         </div>
         <div className="flex items-center gap-4">
-          <button className="px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
-            Connect Wallet
-          </button>
+          <WalletMultiButton className="!bg-white/5 !border !border-white/10 hover:!bg-white/10 transition-colors !rounded-full !h-10 !px-4" />
         </div>
       </nav>
+
+      {/* Premium Banner */}
+      <div className="bg-primary/10 border-b border-primary/20 px-6 py-2 text-center text-sm font-medium text-primary">
+        Holding $ECORADAR? Connect your wallet to unlock real-time Alpha data and deep-dives.
+      </div>
 
       {/* Main Dashboard Content */}
       <main className="max-w-7xl mx-auto px-6 py-12 relative z-10">
