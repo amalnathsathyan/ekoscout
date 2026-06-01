@@ -9,9 +9,29 @@ const port = process.env.PORT || 8080;
 
 app.use(express.json());
 
+import { requireX402Payment } from './middleware/x402';
+
 // Health check endpoint
 app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'ok', message: 'EcosystemRadar Agent is running' });
+});
+
+// Premium Agent-to-Agent API Route
+// Costs 0.50 USDC per query
+app.get('/api/v1/opportunities', requireX402Payment(0.50), (req: Request, res: Response) => {
+  const chain = req.query.chain || 'all';
+  
+  // Return premium scraped and enriched data
+  res.status(200).json({
+    status: 'success',
+    chain: chain,
+    data: {
+      opportunities: [
+        { id: 1, type: 'Grant', amount: '$50k', title: 'DeFi Builder Fund' },
+        { id: 2, type: 'Hackathon', amount: '$100k', title: 'Global Spring Hack' }
+      ]
+    }
+  });
 });
 
 // Endpoint triggered by GitHub Actions Cron
