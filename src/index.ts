@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { runAllScrapers } from './scrapers';
 
 dotenv.config();
 
@@ -24,8 +25,7 @@ app.post('/run-scrapers', async (req: Request, res: Response) => {
 
   try {
     console.log('Starting scheduled scrapers...');
-    // TODO: Implement scrapers here
-    // await runAllScrapers();
+    await runAllScrapers();
     
     console.log('Scraping completed successfully.');
     res.status(200).json({ status: 'success', message: 'Scraping job completed' });
