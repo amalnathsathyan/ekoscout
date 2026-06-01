@@ -1,0 +1,14 @@
+services:
+  - name: ekoscout-pinger
+    type: worker
+    git:
+      repository: amalnathsathyan/ekoscout
+      branch: main
+    build_command: "npm install axios"
+    run_command: "node scripts/health-pinger.js"
+    env:
+      - key: CLOUD_RUN_URL
+        value: "https://your-cloud-run-url.a.run.app"
+    regions:
+      - was
+    instance_type: free
