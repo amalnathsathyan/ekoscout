@@ -25,7 +25,7 @@ export async function sendTelegramNotification(message: string) {
   }
 
   try {
-    const url = \`https://api.telegram.org/bot\${botToken}/sendMessage\`;
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
     await axios.post(url, {
       chat_id: chatId,
       text: message,
@@ -40,11 +40,11 @@ export async function sendTelegramNotification(message: string) {
 export async function notifyTopOpportunities(opportunities: any[]) {
   if (!opportunities || opportunities.length === 0) return;
 
-  const message = \`🚨 **New Builder Opportunities Detected!** 🚨\\n\\n\` +
+  const message = `🚨 **New Builder Opportunities Detected!** 🚨\n\n` +
     opportunities.slice(0, 3).map(opp => 
-      \`- **\${opp.chain || 'Chain'}**: \${opp.title} (\${opp.type}) - \${opp.amount}\\n\`
+      `- **${opp.chain || 'Chain'}**: ${opp.title} (${opp.type}) - ${opp.amount}\n`
     ).join('') +
-    \`\\nCheck the dashboard for more details: https://ekoscout.vercel.app\`;
+    `\nCheck the dashboard for more details: https://ekoscout.vercel.app`;
 
   await Promise.allSettled([
     sendDiscordNotification(message),
