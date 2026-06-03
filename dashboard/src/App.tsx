@@ -11,7 +11,7 @@ const MOCK_CHAINS = [
 ]
 
 export default function App() {
-  const [chains, setChains] = useState(MOCK_CHAINS)
+  const [chains] = useState(MOCK_CHAINS)
 
   useEffect(() => {
     // Realtime Supabase Subscription example
@@ -113,13 +113,13 @@ export default function App() {
                     <td className="p-4">
                       <div className="flex items-center gap-2">
                         <div className="w-full max-w-[100px] h-2 bg-white/10 rounded-full overflow-hidden">
-                          <div className="h-full bg-green-500 rounded-full" style={{ width: \`\${chain.health}%\` }} />
+                          <div className="h-full bg-green-500 rounded-full" style={{ width: `${chain.health}%` }} />
                         </div>
                         <span className="text-sm">{chain.health}</span>
                       </div>
                     </td>
                     <td className="p-4">
-                      <span className={\`px-2 py-1 rounded-md text-xs font-medium \${chain.density < 1.5 ? 'bg-green-500/10 text-green-400' : 'bg-orange-500/10 text-orange-400'}\`}>
+                      <span className={`px-2 py-1 rounded-md text-xs font-medium ${chain.density < 1.5 ? 'bg-green-500/10 text-green-400' : 'bg-orange-500/10 text-orange-400'}`}>
                         {chain.density}
                       </span>
                     </td>
