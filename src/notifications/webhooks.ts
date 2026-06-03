@@ -1,19 +1,5 @@
 import axios from 'axios';
 
-export async function sendDiscordNotification(message: string) {
-  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
-  if (!webhookUrl) {
-    console.warn('DISCORD_WEBHOOK_URL is not set. Skipping Discord notification.');
-    return;
-  }
-
-  try {
-    await axios.post(webhookUrl, { content: message });
-    console.log('Successfully sent Discord notification.');
-  } catch (error) {
-    console.error('Failed to send Discord notification:', error);
-  }
-}
 
 export async function sendTelegramNotification(message: string) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -46,8 +32,5 @@ export async function notifyTopOpportunities(opportunities: any[]) {
     ).join('') +
     `\nCheck the dashboard for more details: https://ekoscout.vercel.app`;
 
-  await Promise.allSettled([
-    sendDiscordNotification(message),
-    sendTelegramNotification(message)
-  ]);
+  await sendTelegramNotification(message);
 }
