@@ -92,10 +92,9 @@ export default function App() {
               <span className="text-gradient">EkoScout</span>
             </h1>
             <p className="text-white/40 text-lg max-w-2xl leading-relaxed">
-              Autonomous AI agent scanning{' '}
-              <strong className="text-white/70">200+ blockchain ecosystems</strong> 24/7
-              for grants, hackathons, accelerator programs, and high-value builder opportunities.{' '}
-              <span className="text-violet-400/70">Find your edge before the crowd arrives.</span>
+              Autonomous AI agent scanning grants, hackathons, and jobs across{' '}
+              <strong className="text-white/70">top ecosystems</strong> — ranked by builder opportunity and competition density.{' '}
+              <span className="text-violet-400/70">Find high-funding, low-competition ecosystems before the crowd.</span>
             </p>
           </header>
 

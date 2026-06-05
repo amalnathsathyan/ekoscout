@@ -6,7 +6,7 @@ const TOKEN_METADATA = {
   name: 'Ekoscout',
   symbol: 'EKO',
   description:
-    'Perpetual blockchain opportunity research agent. Scans 200+ chains for grants, hackathons, accelerator programs, and ecosystem jobs. Holding $EKO unlocks premium real-time alpha via the EkoScout dashboard.',
+    'Blockchain opportunity research agent. Scans top ecosystems for grants, hackathons, accelerator programs, and ecosystem jobs — ranked by builder opportunity and competition density. Holding $EKO unlocks premium real-time alpha via the EkoScout dashboard.',
   agentId: 'ekoscout-v1',
 };
 

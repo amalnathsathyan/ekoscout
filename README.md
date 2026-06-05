@@ -1,9 +1,9 @@
 # ekoscout
 
-EkoScout is an autonomous agent that perpetually scans every blockchain ecosystem for builder opportunities — hackathons, grants, founder programs, accelerators, and ecosystem jobs. It displays all findings in a real-time dashboard.
+EkoScout is an autonomous agent that scans top blockchain ecosystems for builder opportunities — hackathons, grants, founder programs, accelerators, and ecosystem jobs — ranked by builder opportunity and competition density. Displays all findings in a real-time dashboard.
 
 ## Features
-- **Scrapes 200+ Blockchains** for opportunities.
+- **Scores ecosystems** by builder opportunity and competition density.
 - **Grants & Hackathons**: Finds active builder funds and competitions.
 - **Ecosystem Jobs**: Aggregates web3 jobs.
 - **AI Enriched**: Uses Gemini for classification, summarization, and scoring.
