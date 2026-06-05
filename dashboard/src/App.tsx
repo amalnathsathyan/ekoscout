@@ -89,7 +89,7 @@ export default function App() {
               </span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-black tracking-tighter mb-5 leading-[1.05]">
-              <span className="text-gradient">Ecosystem Radar</span>
+              <span className="text-gradient">EkoScout</span>
             </h1>
             <p className="text-white/40 text-lg max-w-2xl leading-relaxed">
               Autonomous AI agent scanning{' '}

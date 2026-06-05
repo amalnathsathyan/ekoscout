@@ -31,7 +31,7 @@ export default function Navbar() {
             <span className="text-lg font-bold tracking-tight text-white">
               EkoScout
             </span>
-            <span className="text-xs text-white/20">Ecosystem Radar</span>
+            <span className="text-xs text-white/20">Autonomous Research Agent</span>
           </div>
 
           {/* Live agent indicator */}
