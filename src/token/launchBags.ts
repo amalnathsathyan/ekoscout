@@ -3,10 +3,10 @@ import axios from 'axios';
 const BAGS_API = 'https://bagsworld.app/api/agent-economy/external';
 
 const TOKEN_METADATA = {
-  name: 'EcosystemRadar',
-  symbol: 'ECORADAR',
+  name: 'Ekoscout',
+  symbol: 'EKO',
   description:
-    'Perpetual blockchain opportunity research agent. Scans 200+ chains for grants, hackathons, accelerator programs, and ecosystem jobs. Holding $ECORADAR unlocks premium real-time alpha via the EkoScout dashboard.',
+    'Perpetual blockchain opportunity research agent. Scans 200+ chains for grants, hackathons, accelerator programs, and ecosystem jobs. Holding $EKO unlocks premium real-time alpha via the EkoScout dashboard.',
 };
 
 interface LaunchResult {
@@ -22,7 +22,7 @@ interface EarningsResult {
 }
 
 /**
- * Launch $ECORADAR on Bags.fm — gas-free via Pokécenter API.
+ * Launch $EKO on Bags.fm — gas-free via Pokécenter API.
  * BagsWorld pays the ~0.03 SOL deployment cost.
  * Creator earns 1% of all trading volume forever.
  *
@@ -41,7 +41,7 @@ export async function launchToken(moltbookUsername?: string): Promise<LaunchResu
     );
   }
 
-  console.log('Launching $ECORADAR token via Bags.fm Pokécenter (gas-free)...');
+  console.log('Launching $EKO token via Bags.fm Pokécenter (gas-free)...');
 
   const payload: any = {
     action: 'launch',

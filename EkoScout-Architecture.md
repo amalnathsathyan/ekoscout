@@ -40,7 +40,7 @@ Autonomous AI agent that perpetually scans blockchain ecosystems for builder opp
 │  • Ecosystem universe table (12 demo chains)             │
 │  • Featured opportunities horizontal feed                │
 │  • Bento-grid live stats (chains, programs, jobs, TVL)   │
-│  • Token-gated premium tiers ($ECORADAR)                 │
+│  • Token-gated premium tiers ($EKO)                 │
 │  • Solana wallet auth (Phantom)                          │
 │  • Telegram community CTA                                │
 └─────────────────────────────────────────────────────────┘
@@ -135,16 +135,16 @@ Cron → Scraper → Gemini enrichment → Supabase INSERT → Dashboard realtim
 - **Gas-free launches**: BagsWorld pays ~0.03 SOL deployment cost
 - **Proven earnings**: devs earned $100K-$300K from token trading activity
 
-### $ECORADAR Token Use Case
+### $EKO Token Use Case
 
 The token is NOT a meme. It serves concrete utility:
 
 | Tier | Requirement | Access |
 |---|---|---|
 | **Free** | None | Ecosystem table, basic filters, 24h delayed data, Telegram alerts |
-| **Radar** | Hold 1,000 $ECORADAR | Real-time data, top 20 rankings, CSV export, priority Telegram alerts |
-| **Alpha** | Hold 10,000 $ECORADAR | Raw API access (x402), custom filters, historical trends, build ideas |
-| **Enterprise** | Hold 100,000 $ECORADAR | White-label embed, custom scrapers, priority support, governance vote |
+| **Radar** | Hold 1,000 $EKO | Real-time data, top 20 rankings, CSV export, priority Telegram alerts |
+| **Alpha** | Hold 10,000 $EKO | Raw API access (x402), custom filters, historical trends, build ideas |
+| **Enterprise** | Hold 100,000 $EKO | White-label embed, custom scrapers, priority support, governance vote |
 
 ### Revenue Flywheel
 
@@ -152,13 +152,13 @@ The token is NOT a meme. It serves concrete utility:
 Scraper finds opportunities → Dashboard attracts builders →
   → Token demand grows (premium access) →
     → Bags.fm trading volume generates revenue →
-      → Revenue buys back & burns $ECORADAR →
+      → Revenue buys back & burns $EKO →
         → Token value increase attracts more builders
 ```
 
 Agent uses Bags.fm revenue + x402 API fees to:
 1. Pay hosting costs (if ever exceeds free tier)
-2. Buy back and burn $ECORADAR
+2. Buy back and burn $EKO
 3. Distribute to long-term holders
 
 ---
@@ -180,7 +180,7 @@ Agent uses Bags.fm revenue + x402 API fees to:
 | `GET /health` | None | Health check for Render + cron monitoring |
 | `POST /run-scrapers` | Bearer `CRON_SECRET` | Trigger scraper run (GH Actions cron target) |
 | `GET /api/v1/opportunities` | x402 (0.50 USDC) | Premium agent-to-agent API |
-| `POST /launch-token` | Bearer `CRON_SECRET` | Launch $ECORADAR via Bags.fm (manual trigger) |
+| `POST /launch-token` | Bearer `CRON_SECRET` | Launch $EKO via Bags.fm (manual trigger) |
 | `GET /earnings` | Bearer `CRON_SECRET` | Query token earnings |
 
 ---
@@ -271,7 +271,7 @@ Health Index = Dev growth (30d %) × 0.3
 
 | Rail | Mechanism | Status |
 |---|---|---|
-| **Bags.fm token** | Launch $ECORADAR on Solana. 1% of trading volume to agent wallet. Token-gate premium features. | Integration planned |
+| **Bags.fm token** | Launch $EKO on Solana. 1% of trading volume to agent wallet. Token-gate premium features. | Integration planned |
 | **x402 pay-per-use API** | Agents pay 0.50 USDC per query on Base. | Middleware built, verification mocked |
 | **Grant referral bounties** | Auto-submit referral links to ecosystem programs. | Not built |
 | **Sponsored listings** | Protocols pay USDC to boost visibility. | Not built |

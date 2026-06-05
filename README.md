@@ -1,6 +1,6 @@
 # ekoscout
 
-EkoScout (EcosystemRadar) is an autonomous agent that perpetually scans every blockchain ecosystem for builder opportunities — hackathons, grants, founder programs, accelerators, and ecosystem jobs. It displays all findings in a real-time dashboard.
+EkoScout is an autonomous agent that perpetually scans every blockchain ecosystem for builder opportunities — hackathons, grants, founder programs, accelerators, and ecosystem jobs. It displays all findings in a real-time dashboard.
 
 ## Features
 - **Scrapes 200+ Blockchains** for opportunities.

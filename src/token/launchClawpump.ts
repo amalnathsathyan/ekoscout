@@ -3,10 +3,10 @@ import axios from 'axios';
 const CLAWPUMP_BASE = 'https://clawpump.tech/api';
 
 const TOKEN_METADATA = {
-  name: 'EcosystemRadar',
-  symbol: 'ECORADAR',
+  name: 'Ekoscout',
+  symbol: 'EKO',
   description:
-    'Perpetual blockchain opportunity research agent. Scans 200+ chains for grants, hackathons, accelerator programs, and ecosystem jobs. Holding $ECORADAR unlocks premium real-time alpha via the EkoScout dashboard.',
+    'Perpetual blockchain opportunity research agent. Scans 200+ chains for grants, hackathons, accelerator programs, and ecosystem jobs. Holding $EKO unlocks premium real-time alpha via the EkoScout dashboard.',
   agentId: 'ekoscout-v1',
 };
 
@@ -28,7 +28,7 @@ export async function launchToken(imageUrl?: string): Promise<LaunchResult> {
     throw new Error('AGENT_WALLET_ADDRESS not set. Cannot launch token without a fee recipient wallet.');
   }
 
-  console.log('Launching $ECORADAR token via ClawPump...');
+  console.log('Launching $EKO token via ClawPump...');
 
   const payload = {
     ...TOKEN_METADATA,

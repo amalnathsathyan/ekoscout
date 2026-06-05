@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { SolanaWalletProvider } from './providers/WalletProvider.tsx'
+import { TokenTierProvider } from './context/TokenTierContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <SolanaWalletProvider>
-      <App />
+      <TokenTierProvider>
+        <App />
+      </TokenTierProvider>
     </SolanaWalletProvider>
   </StrictMode>,
 )

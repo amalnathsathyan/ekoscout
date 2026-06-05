@@ -57,7 +57,7 @@ app.post('/run-scrapers', async (req: Request, res: Response) => {
 });
 
 // Trigger Bags.fm token launch (manual, cron-secret protected)
-// Deploys $ECORADAR on Bags.fm via Pokécenter — gas-free, 1% of trading volume to AGENT_WALLET_ADDRESS
+// Deploys $EKO on Bags.fm via Pokécenter — gas-free, 1% of trading volume to AGENT_WALLET_ADDRESS
 app.post('/launch-token', async (req: Request, res: Response) => {
   const authHeader = req.headers.authorization;
   const cronSecret = process.env.CRON_SECRET;

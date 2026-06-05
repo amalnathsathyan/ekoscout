@@ -3,6 +3,10 @@ import { scrapeDefiLlama } from './defillama';
 import { scrapeDoraHacks } from './dorahacks';
 import { scrapeGitcoin } from './gitcoin';
 import { scrapeWeb3Career } from './web3career';
+import { scrapeCryptoRank } from './cryptorank';
+import { scrapeApifyTwitter } from './apify';
+import { scrapeCoinGecko } from './coingecko';
+import { scrapeGitHub } from './github';
 import { enrichEcosystemData } from '../enrichment/gemini';
 import { notifyTopOpportunities } from '../notifications/webhooks';
 import { upsertChains, insertPrograms } from '../lib/supabase';
@@ -10,16 +14,20 @@ import { upsertChains, insertPrograms } from '../lib/supabase';
 export async function runAllScrapers() {
   console.log('Starting all scrapers...');
 
-  const [cmc, defillama, dorahacks, gitcoin, web3career] = await Promise.allSettled([
+  const [cmc, defillama, dorahacks, gitcoin, web3career, cryptorank, apify, coingecko, github] = await Promise.allSettled([
     scrapeCMC(),
     scrapeDefiLlama(),
     scrapeDoraHacks(),
     scrapeGitcoin(),
-    scrapeWeb3Career()
+    scrapeWeb3Career(),
+    scrapeCryptoRank(),
+    scrapeApifyTwitter(),
+    scrapeCoinGecko(),
+    scrapeGitHub()
   ]);
 
   console.log('Scraping run completed.');
-  const rawData = { cmc, defillama, dorahacks, gitcoin, web3career };
+  const rawData = { cmc, defillama, dorahacks, gitcoin, web3career, cryptorank, apify, coingecko, github };
 
   // ── Persist chains from DefiLlama + CMC ──
   const defiChains = defillama.status === 'fulfilled' ? defillama.value : [];
