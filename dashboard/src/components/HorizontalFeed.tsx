@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Zap, Clock, ArrowRight, Radio, ExternalLink } from 'lucide-react'
+import { Zap, Clock, ArrowRight, Radio } from 'lucide-react'
 import type { Program } from '../lib/types'
 import {
   daysUntilLabel,

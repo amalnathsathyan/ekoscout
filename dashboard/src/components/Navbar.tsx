@@ -14,7 +14,7 @@ import { useTokenTier } from '../context/TokenTierContext'
  *  - WalletMultiButton for Solana wallet connection
  */
 export default function Navbar() {
-  const { tier, tierConfig, connected } = useTokenTier()
+  const { tierConfig, connected } = useTokenTier()
 
   return (
     <nav className="glass-strong sticky top-0 z-50 border-b border-white/5">

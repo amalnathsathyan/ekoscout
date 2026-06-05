@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Globe, Gift, Briefcase, Layers } from 'lucide-react'
 import AnimatedCounter from './ui/AnimatedCounter'
-import { formatTVL, formatCompact } from '../lib/formatters'
+import { formatTVL } from '../lib/formatters'
 import type { Chain, Program, Job } from '../lib/types'
 
 /**
