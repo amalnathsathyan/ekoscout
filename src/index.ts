@@ -10,10 +10,11 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 
 import { requireX402Payment } from './middleware/x402';
+import { launchToken, getEarnings, checkLauncherStatus } from './token/launchBags';
 
 // Health check endpoint
 app.get('/health', (req: Request, res: Response) => {
-  res.status(200).json({ status: 'ok', message: 'EcosystemRadar Agent is running' });
+  res.status(200).json({ status: 'ok', message: 'EkoScout Agent is running' });
 });
 
 // Premium Agent-to-Agent API Route
@@ -52,6 +53,53 @@ app.post('/run-scrapers', async (req: Request, res: Response) => {
   } catch (error) {
     console.error('Error during scraping:', error);
     res.status(500).json({ status: 'error', message: 'Internal server error during scraping' });
+  }
+});
+
+// Trigger Bags.fm token launch (manual, cron-secret protected)
+// Deploys $ECORADAR on Bags.fm via Pokécenter — gas-free, 1% of trading volume to AGENT_WALLET_ADDRESS
+app.post('/launch-token', async (req: Request, res: Response) => {
+  const authHeader = req.headers.authorization;
+  const cronSecret = process.env.CRON_SECRET;
+
+  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    const moltbookUsername = req.body.moltbookUsername || undefined;
+    const result = await launchToken(moltbookUsername);
+    res.status(200).json({ status: 'success', data: result });
+  } catch (error: any) {
+    console.error('Token launch failed:', error.message);
+    res.status(500).json({ status: 'error', message: error.message });
+  }
+});
+
+// Query Bags.fm earnings for the agent
+app.get('/earnings', async (req: Request, res: Response) => {
+  const authHeader = req.headers.authorization;
+  const cronSecret = process.env.CRON_SECRET;
+
+  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  try {
+    const earnings = await getEarnings();
+    res.status(200).json({ status: 'success', data: earnings });
+  } catch (error: any) {
+    res.status(500).json({ status: 'error', message: error.message });
+  }
+});
+
+// Check Bags.fm launcher status
+app.get('/launcher-status', async (_req: Request, res: Response) => {
+  try {
+    const status = await checkLauncherStatus();
+    res.status(200).json({ status: 'success', data: status });
+  } catch (error: any) {
+    res.status(500).json({ status: 'error', message: error.message });
   }
 });
 

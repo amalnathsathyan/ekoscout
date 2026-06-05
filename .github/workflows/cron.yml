@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: Trigger Scrapers via Cloud Run
         run: |
-          curl -X POST ${{ secrets.CLOUD_RUN_URL }}/run-scrapers \
+          curl -X POST ${{ secrets.BACKEND_URL }}/run-scrapers \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             -H "Content-Type: application/json"
